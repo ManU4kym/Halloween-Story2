@@ -45,10 +45,11 @@ house.add(walls)
 
 /* roof */
 const roof = new THREE.Mesh(
-    new THREE.ConeGeometry(3.5,1.5,4),
+    new THREE.ConeGeometry(3.5, 1.5, 4),
     new THREE.MeshStandardMaterial(),
 )
 roof.position.y = 2.5 + 0.75
+roof.rotation.y = Math.PI /2 /2
 
 house.add(roof)
 
