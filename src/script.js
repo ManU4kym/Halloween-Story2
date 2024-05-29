@@ -3,6 +3,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { Timer } from 'three/addons/misc/Timer.js'
 import GUI from 'lil-gui'
 import { tri } from 'three/examples/jsm/nodes/math/TriNoise3D.js'
+import { degrees } from 'three/examples/jsm/nodes/Nodes.js'
 
 /**
  * Base
@@ -49,9 +50,19 @@ const roof = new THREE.Mesh(
     new THREE.MeshStandardMaterial(),
 )
 roof.position.y = 2.5 + 0.75
-roof.rotation.y = Math.PI /2 /2
+roof.rotation.y = Math.PI * 0.25
 
 house.add(roof)
+
+/* Door */
+const door = new THREE.Mesh(
+    new THREE.PlaneGeometry(2.2, 2.2),
+    new THREE.MeshStandardMaterial()
+)
+
+door.position.y = 1
+door.position.z = 2
+house.add(door)
 
 /**
  * Lights
@@ -121,7 +132,7 @@ const tick = () =>
     // Timer
     timer.update()
     const elapsedTime = timer.getElapsed()
-    console.log(elapsedTime)
+    
     // Update controls
     controls.update()
 
