@@ -47,7 +47,7 @@ house.add(walls)
 /* roof */
 const roof = new THREE.Mesh(
     new THREE.ConeGeometry(3.5, 1.5, 4),
-    new THREE.MeshStandardMaterial(),
+    new THREE.MeshStandardMaterial({color : 'green'}),
 )
 roof.position.y = 2.5 + 0.75
 roof.rotation.y = Math.PI * 0.25
@@ -57,7 +57,7 @@ house.add(roof)
 /* Door */
 const door = new THREE.Mesh(
     new THREE.PlaneGeometry(2.2, 2.2),
-    new THREE.MeshStandardMaterial()
+    new THREE.MeshStandardMaterial({color: 'lightgray'})
 )
 
 door.position.y = 1
@@ -67,7 +67,7 @@ house.add(door)
 /* Bushe */
 
 const bushGeometry = new THREE.SphereGeometry(1, 16, 16)
-const bushMaterial = new THREE.MeshStandardMaterial()
+const bushMaterial = new THREE.MeshStandardMaterial({color : 'lightgreen'})
 /* bush mesh */
 const bush1 = new THREE.Mesh(bushGeometry,bushMaterial)
 bush1.scale.set(0.5, 0.5, 0.5)
@@ -86,9 +86,22 @@ const bush4 = new THREE.Mesh(bushGeometry, bushMaterial)
 bush4.scale.set(0.15,0.15, 0.15)
 bush4.position.set(-1, 0.05,2.6)
 
-
-
 house.add(bush1, bush2,bush3,bush4)
+
+/* Grave Yard */
+/*  Grave Geometry using boxGeometry and graveMaterial
+ using a MeshStandardMaterial */
+
+const graveGeometry = new  THREE.BoxGeometry(0.6,0.8,0.2)
+const graveMaterial = new THREE.MeshBasicMaterial()
+
+/* Grave Group and add to scene */
+const graves = new THREE.Group()
+scene.add(graves)
+
+
+
+
 /**
  * Lights
  */
